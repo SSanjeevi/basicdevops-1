@@ -12,6 +12,20 @@ pool:
 steps:
 
 - task: DotNetCoreCLI@2
+  displayName: Console app build
   inputs:
     command: 'build'
     projects: 'ConsoleAppTestBuild/ConsoleAppTestBuild/ConsoleAppTestBuild.csproj'
+    arguments: 
+    
+- task: DotNetCoreCLI@2
+  displayName: Web api app build
+  inputs:
+    command: 'build'
+    projects: 'BasicWebapiUnitTest/BasicWebapiUnitTest/BasicWebapiUnitTest.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: Web api unit test build
+  inputs:
+    command: 'test'
+    projects: 'BasicWebapiUnitTest/TestProjectBasicApi/TestProjectBasicApi.csproj'
